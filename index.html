@@ -45,6 +45,51 @@
   <meta http-equiv="refresh" content="3600">
   <!-- FIN DE CONFIGURACIÓN PARA MEJORAR EL SEO -->
 
+  <!-- ESTILOS INTERNOS PERSONALIZADOS PARA INDEX.HTML -->
+   <style>
+    /* HERO */
+.hero {
+  top: -75px;
+  position: relative;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: #fff;
+  
+  overflow: hidden;
+  background-color: #0a1a2a44;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../img/hero.jpg') center/cover no-repeat fixed;
+  opacity: 1;
+  z-index: -1;
+}
+
+.hero h2 {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 0 2rem;
+  margin-bottom: 15px;
+}
+.hero h3 {
+  padding: 0 1rem;
+}
+
+.hero p {
+  padding: 0 2rem;
+  font-size: 20px;
+  font-weight: lighter;
+  margin-top: 15px;
+}
+   </style>
+  <!-- FIN ESTILOS INTERNOS PERSONALIZADOS PARA INDEX.HTML -->
+
 </head>
 <body>
 
@@ -52,15 +97,17 @@
    <header>
 
     <div class="logo-container">
-      <img src="img/logo.png" alt="Logo de Pelicristo">
+      <a href="index.html">
+        <img src="img/logo.png" alt="Logo de Pelicristo">
+      </a>
     </div>
 
     <nav class="navbar">
       <ul>
-        <li><a href="">Películas</a></li>
-        <li><a href="">Música</a></li>
-        <li><a href="">Series</a></li>
-        <li><a href="">Descargas</a></li>
+        <li><a href="peliculas.html">Películas</a></li>
+        <li><a href="series.html">Series</a></li>
+        <li><a href="musica.html">Música</a></li>
+        <li><a href="descargas.html">Descargas</a></li>
       </ul>
     </nav>
 
@@ -95,32 +142,46 @@
    <section class="diseño-container">
     <h2>Equipo de trabajo</h2>
 
-     <div class="card-container">
-        <div class="card">
-          <div class="card-info">
-            <img src="img/invictoria.png" alt="Logo de Inversion M. Victoria">
-            <h3>Inversión M. Victoria</h3>
-            <h2>Diseño</h2>
-          </div>
-    </div>
+    <div class="slider-container">
+        <div class="card-container">
+            <div class="card">
+                <div class="card-info">
+                    <img src="img/invictoria.png" alt="Logo de Inversion M. Victoria">
+                    <h3>Inversión M. Victoria</h3>
+                    <h2>Diseño</h2>
+                </div>
+            </div>
 
-    <div class="card">
-      <div class="card-info">
-        <img src="img/invictoria.png" alt="Logo de Inversion M. Victoria">
-        <h3>Jairo Enrique García Vina</h3>
-        <h2>Elaboración del CEO</h2>
-      </div>
-    </div>
+            <div class="card">
+                <div class="card-info">
+                    <img src="img/noel.jpg" alt="Poster de Jairo Enrique García Vina">
+                    <h3>Jairo Enrique García Vina</h3>
+                    <h2>Elaboración del CEO</h2>
+                </div>
+            </div>
 
-    <div class="card">
-      <div class="card-info">
-        <img src="img/invictoria.png" alt="Logo de Inversion M. Victoria">
-        <h3>Jairo Enrique García Vina</h3>
-        <h2>Colaborador</h2>
-      </div>
-     </div>
+            <div class="card">
+                <div class="card-info">
+                    <img src="img/jairo.jpg" alt="Poster de Noel Escobar">
+                    <h3>Noel Escobar</h3>
+                    <h2>Colaborador</h2>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-info">
+                    <img src="img/dev.jpg" alt="Poster de Aciel Olivera García">
+                    <h3>Aciel Olivera García</h3>
+                    <h2>Colaborador</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles del slider -->
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </div>
-   </section>
+</section>
   <!-- ===== FIN DE DISEÑO ===== -->
 
   <!-- ===== INICIO DEL FOOTER ===== -->
@@ -167,5 +228,6 @@
   </footer>
   <!-- ===== FIN DEL FOOTER ===== -->
   
+  <script src="src/script.js"></script>
 </body>
 </html>

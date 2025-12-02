@@ -18,6 +18,9 @@ header {
   width: 100%;
   z-index: 1;
 }
+.logo-container {
+  z-index: 1;
+}
 .logo-container img {
   width: 50px;
 }
@@ -55,42 +58,6 @@ header {
   transform: scaleX(1);
 }
 
-/* HERO */
-.hero {
-  top: -75px;
-  position: relative;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  color: #fff;
-  
-  overflow: hidden;
-  background-color: #0a1a2a44;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('../img/hero.jpg') center/cover no-repeat fixed;
-  opacity: 1;
-  z-index: -1;
-}
-
-.hero h2 {
-  font-size: 30px;
-  font-weight: bold;
-  padding: 0 2rem;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 20px;
-  font-weight: lighter;
-  margin-top: 15px;
-}
 
 /* NUESTRO OBJETIVO */
 .nuestro-objetivo-container {
@@ -128,8 +95,8 @@ header {
 .diseño-container h2 {
   color: #333;
 }
-.card-container {
-  padding: 1rem 4rem;
+.card-container, .pelis-container {
+  padding: 1rem 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
@@ -137,6 +104,8 @@ header {
 }
 .card {
   background-color: #fff;
+}
+.card, .pelis-container .pelis {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -145,11 +114,30 @@ header {
   text-align: center;
 }
 .card img {
-  max-width: 200px;
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   border-bottom: 1px solid #ddd;
+  width: 100%;
+}
+.pelis img {
+  object-fit: contain;
+  border-radius: 5px;
+  height: 300px;
+}
+.pelis button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  background: #162660;
+}
+.pelis button a, .pelis button i {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.card img {
+  max-width: 200px;
+  height: 200px;
   border-radius: 50%;
 }
 .card h2 {
@@ -160,6 +148,9 @@ header {
 .card h3 {
   margin-top: 10px;
   color: #333;
+}
+.prev, .next {
+  display: none;
 }
 
 
@@ -308,3 +299,67 @@ footer::before {
 .display-details a:hover {
   color: rgb(0, 162, 255);
 }
+
+
+/* === EQUIPO DE TRABAJO RESPONSIVE === */
+@media screen and (max-width: 800px) {
+  .slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .card-container {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+  .card {
+    flex: 0 0 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px 25px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    pointer-events: none;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+  }
+  /* Controles del slider */
+  .prev, .next {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    transform: translateY(-50%);
+  }
+  .prev {
+    left: 10px;
+  }
+  .next {
+    right: 10px;
+  }
+}
+
+
+/* .pelis-container {
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+} */
