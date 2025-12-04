@@ -6,7 +6,6 @@ function moveSlide(step) {
 
   slideIndex += step;
 
-  // Asegurarse de que el índice de la diapositiva esté dentro del rango
   if (slideIndex < 0) {
     slideIndex = totalSlides - 1;
   } else if (slideIndex >= totalSlides) {

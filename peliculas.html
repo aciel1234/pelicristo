@@ -9,6 +9,8 @@
    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
   <!-- Estilos internos -->
   <link rel="stylesheet" href="src/style.css">
+  <!-- Estilos externos -->
+  <link rel="stylesheet" href="https://aciel1234.github.io/design/css/web-resources.css">
   <!-- Estilos de Fontawesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Fuentes de Google Fonts -->
@@ -93,6 +95,11 @@
    </section>
   <!-- ===== FIN DEL HERO ===== -->
   
+  <!-- ===== COMIENZO DEL CONTENEDOR DE BUSCAR ===== -->
+   <div class="search-container">
+    <input id="buscar" type="search" placeholder="Buscar..."><i class="fa fa-search"></i>
+  </div>
+  <!-- ===== FIN DEL CONTENEDOR DE BUSCAR ===== -->
 
    <!-- GARELIA DE PELICULAS -->
     <div class="pelis-container">
@@ -107,57 +114,15 @@
       </div>
 
       <div class="pelis">
-        <img src="https://pics.filmaffinity.com/nada_a_perder-557837642-large.jpg" alt="Poster de Nada que perder">
-        <h3>Nada Que Perder</h3>
-        <p>2018</p>
+        <img src="https://pics.filmaffinity.com/ruth_boaz-902826147-large.jpg" alt="Poster de Ruth y Boaz">
+        <h3>Ruth y Boaz</h3>
+        <p>2025</p>
           <button>
             <a href="" download="">Descargar</a> <i class="fa fa-download"></i>
           </button>
       </div>
 
-      <div class="pelis">
-        <img src="https://pics.filmaffinity.com/nada_a_perder-557837642-large.jpg" alt="Poster de Nada que perder">
-        <h3>Nada Que Perder</h3>
-        <p>2018</p>
-          <button>
-            <a href="" download="">Descargar</a> <i class="fa fa-download"></i>
-          </button>
-      </div>
-
-      <div class="pelis">
-        <img src="https://pics.filmaffinity.com/nada_a_perder-557837642-large.jpg" alt="Poster de Nada que perder">
-        <h3>Nada Que Perder</h3>
-        <p>2018</p>
-          <button>
-            <a href="" download="">Descargar</a> <i class="fa fa-download"></i>
-          </button>
-      </div>
-
-      <div class="pelis">
-        <img src="https://pics.filmaffinity.com/nada_a_perder-557837642-large.jpg" alt="Poster de Nada que perder">
-        <h3>Nada Que Perder</h3>
-        <p>2018</p>
-          <button>
-            <a href="" download="">Descargar</a> <i class="fa fa-download"></i>
-          </button>
-      </div>
-
-      <div class="pelis">
-        <img src="https://pics.filmaffinity.com/nada_a_perder-557837642-large.jpg" alt="Poster de Nada que perder">
-        <h3>Nada Que Perder</h3>
-        <p>2018</p>
-          <button>
-            <a href="" download="">Descargar</a> <i class="fa fa-download"></i>
-          </button>
-      </div>
-      <div class="pelis">
-        <img src="https://pics.filmaffinity.com/nada_a_perder-557837642-large.jpg" alt="Poster de Nada que perder">
-        <h3>Nada Que Perder</h3>
-        <p>2018</p>
-          <button>
-            <a href="" download="">Descargar</a> <i class="fa fa-download"></i>
-          </button>
-      </div>
+      
       
     </div>
 
@@ -211,5 +176,41 @@
     </div>
   </footer>
   <!-- ===== FIN DEL FOOTER ===== -->
+
+  <script>
+    document.addEventListener('keyup', (e) => {
+      const searchTerm = e.target.value.toLowerCase(); // Obtén el valor de búsqueda
+      const musicDivs = document.querySelectorAll('.pelis'); // Selecciona todos los contenedores con la clase .musica
+
+      // Verifica si la tecla presionada es 'Escape' y limpia el campo de búsqueda
+      if (e.target.matches('#buscar')) {
+        if (e.key === 'Escape') {
+          e.target.value = ''; // Limpiar el input cuando Escape es presionado
+          musicDivs.forEach(musica => musica.classList.remove('hide')); // Muestra todos los contenedores de música
+        } else {
+          musicDivs.forEach(musica => {
+            const paragraphs = musica.querySelectorAll('h3'); // Selecciona todos los <p> dentro del contenedor .musica
+            let matchFound = false;
+
+            paragraphs.forEach(p => {
+              const textContent = p.textContent.toLowerCase(); // Obtener el texto del elemento <p>
+              
+              // Si el texto de cualquiera de los <p> coincide con la búsqueda, muestra el contenedor
+              if (textContent.includes(searchTerm)) {
+                matchFound = true; // Marca que se encontró una coincidencia
+              }
+            });
+
+            // Muestra u oculta el contenedor completo dependiendo de si se encontró una coincidencia
+            if (matchFound) {
+              musica.classList.remove('hide');
+            } else {
+              musica.classList.add('hide');
+            }
+          });
+        }
+      }
+    });
+  </script>
 </body>
 </html>
