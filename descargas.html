@@ -18,51 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
-  <!-- ESTILOS INTERNOS PERSONALIZADOS PARA PELICULAS.HTML -->
-   <style>
-    /* HERO */
-.hero {
-  top: -75px;
-  position: relative;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  color: #fff;
-  
-  overflow: hidden;
-  background: radial-gradient(#0a242aad, #0a1a2ade);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('../img//descargas.jpg') center/cover no-repeat fixed;
-  opacity: 1;
-  z-index: -1;
-}
-
-.hero h2 {
-  font-size: 30px;
-  font-weight: bold;
-  padding: 0 2rem;
-  margin-bottom: 15px;
-}
-.hero h3 {
-  padding: 0 1rem;
-}
-
-.hero p {
-  padding: 0 2rem;
-  font-size: 20px;
-  font-weight: lighter;
-  margin-top: 15px;
-}
-   </style>
-  <!-- FIN ESTILOS INTERNOS PERSONALIZADOS PARA INDEX.HTML -->
-
 </head>
 <body>
 
@@ -90,8 +45,11 @@
 
   <!-- ===== INICIO DEL HERO ===== -->
    <section class="hero">
-    <h2>Pelicristo</h2>
-    <p>Descargas</p>
+    <img src="img/descargas.jpg" alt="Imagen de hero de descargas">
+    <div class="hero-content">
+      <h2>Pelicristo</h2>
+      <p>Descargas</p>
+    </div>
    </section>
   <!-- ===== FIN DEL HERO ===== -->
   
